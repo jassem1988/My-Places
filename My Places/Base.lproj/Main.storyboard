@@ -1,24 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="My_Places" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q02-ZI-JHO">
+                                <rect key="frame" x="20" y="122" width="335" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UkK-6T-hIr">
+                                <rect key="frame" x="20" y="80" width="335" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85t-wp-pcT">
+                                <rect key="frame" x="161.5" y="164" width="52" height="30"/>
+                                <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="topButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nzW-Wy-egH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY PLACES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCW-6M-8gb">
+                                <rect key="frame" x="120.5" y="37" width="134" height="35"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gQ-d6-LMR">
+                                <rect key="frame" x="179.5" y="202" width="16" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcV-UX-Sne">
+                                <rect key="frame" x="134.5" y="231" width="106" height="30"/>
+                                <state key="normal" title="Switch to Login"/>
+                                <connections>
+                                    <action selector="bottomButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pu7-9c-WGa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="85t-wp-pcT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0JS-TR-yah"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q02-ZI-JHO" secondAttribute="trailing" constant="20" id="2hq-U9-mNN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UkK-6T-hIr" secondAttribute="trailing" constant="20" id="4YC-SH-utk"/>
+                            <constraint firstItem="HcV-UX-Sne" firstAttribute="top" secondItem="8gQ-d6-LMR" secondAttribute="bottom" constant="8" id="Erd-aL-4zH"/>
+                            <constraint firstItem="HcV-UX-Sne" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ILA-gD-YPj"/>
+                            <constraint firstItem="8gQ-d6-LMR" firstAttribute="top" secondItem="85t-wp-pcT" secondAttribute="bottom" constant="8" id="NjO-We-4v2"/>
+                            <constraint firstItem="WCW-6M-8gb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pav-kA-cKT"/>
+                            <constraint firstItem="Q02-ZI-JHO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SKU-hB-KUy"/>
+                            <constraint firstItem="WCW-6M-8gb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="Vad-Fa-sg9"/>
+                            <constraint firstItem="UkK-6T-hIr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bGP-jm-uQf"/>
+                            <constraint firstItem="8gQ-d6-LMR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bYO-kY-ekg"/>
+                            <constraint firstItem="85t-wp-pcT" firstAttribute="top" secondItem="Q02-ZI-JHO" secondAttribute="bottom" constant="8" id="e13-6s-Yu3"/>
+                            <constraint firstItem="UkK-6T-hIr" firstAttribute="top" secondItem="WCW-6M-8gb" secondAttribute="bottom" constant="8" id="ep0-q1-ShC"/>
+                            <constraint firstItem="Q02-ZI-JHO" firstAttribute="top" secondItem="UkK-6T-hIr" secondAttribute="bottom" constant="8" id="j6q-D7-J5J"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomButton" destination="HcV-UX-Sne" id="Gqh-tg-3qS"/>
+                        <outlet property="emailTextField" destination="UkK-6T-hIr" id="wUp-m2-G7J"/>
+                        <outlet property="passwordTextField" destination="Q02-ZI-JHO" id="H5U-ax-oxe"/>
+                        <outlet property="topButton" destination="85t-wp-pcT" id="ANj-iQ-xmm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-58.399999999999999" y="117.39130434782609"/>
         </scene>
     </scenes>
 </document>
