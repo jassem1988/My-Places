@@ -71,6 +71,8 @@ class LoginViewController: UIViewController {
                                 
                                 print("Signup Success!!")
                                 
+                                self.performSegue(withIdentifier: "mapSegue", sender: nil)
+                                
                             }
                             
                         }
@@ -89,6 +91,8 @@ class LoginViewController: UIViewController {
                             } else {
                                 
                                 print("Login Success!!")
+                                
+                                self.performSegue(withIdentifier: "mapSegue", sender: nil)
                                 
                             }
                             
