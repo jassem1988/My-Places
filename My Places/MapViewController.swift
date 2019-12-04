@@ -19,6 +19,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     
     var locationsDictionary = [String : Any]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,11 +74,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func saveLocationPressed(_ sender: UIButton) {
         
-        locationsDictionary = ["Name" : "My work", "lat" : 15, "lon" : 139.443, "City" : "Kuwait"]
+        //Alert Controller
         
-        Database.database().reference().child("Locations").childByAutoId().setValue(locationsDictionary)
+        var textField = UITextField()
+        
+        let ac = UIAlertController(title: "Add New Location", message: nil, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+            
+            if let textFieldText = textField.text {
+                
+                let location = Location()
+                
+                location.name = textFieldText
+                
+                self.locationsDictionary = ["Name" : location.name, "lat" : 15, "lon" : 139.443, "City" : "Kuwait"]
+                
+                Database.database().reference().child("Locations").childByAutoId().setValue(self.locationsDictionary)
+                
+            }
+            
+        }
+        
+        ac.addTextField { (alertTextField) in
+            
+            alertTextField.placeholder = "Enter location name"
+            
+            textField = alertTextField
+            
+        }
         
         
+        
+        ac.addAction(action)
+        
+        present(ac, animated: true, completion: nil)
         
         
     }

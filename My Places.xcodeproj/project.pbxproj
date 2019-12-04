@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101607752397B82100A14F2E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101607742397B82100A14F2E /* Location.swift */; };
 		1086A2D82394D130000695B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086A2D72394D130000695B2 /* AppDelegate.swift */; };
 		1086A2DA2394D130000695B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086A2D92394D130000695B2 /* SceneDelegate.swift */; };
 		1086A2DC2394D130000695B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1086A2DB2394D130000695B2 /* LoginViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		101607742397B82100A14F2E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		1086A2D42394D130000695B2 /* My Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Places.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1086A2D72394D130000695B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1086A2D92394D130000695B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				1086A2D92394D130000695B2 /* SceneDelegate.swift */,
 				1086A2DB2394D130000695B2 /* LoginViewController.swift */,
 				10C88AC723954FDD00D0C2A4 /* MapViewController.swift */,
+				101607742397B82100A14F2E /* Location.swift */,
 				1086A2DD2394D130000695B2 /* Main.storyboard */,
 				1086A2E02394D137000695B2 /* Assets.xcassets */,
 				1086A2E22394D137000695B2 /* LaunchScreen.storyboard */,
@@ -215,6 +218,7 @@
 			files = (
 				1086A2DC2394D130000695B2 /* LoginViewController.swift in Sources */,
 				1086A2D82394D130000695B2 /* AppDelegate.swift in Sources */,
+				101607752397B82100A14F2E /* Location.swift in Sources */,
 				1086A2DA2394D130000695B2 /* SceneDelegate.swift in Sources */,
 				10C88AC823954FDD00D0C2A4 /* MapViewController.swift in Sources */,
 			);
