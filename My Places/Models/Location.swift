@@ -12,7 +12,7 @@ class Location {
     
     var name: String = ""
     
-    var address: String = ""
+    var coord: String = ""
     
     var comments: String = ""
 }

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -19,7 +20,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     
     var locationsDictionary = [String : Any]()
-
+    
+    var userLocation = CLLocationCoordinate2D()
+    
+    let location = Location()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +34,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-
+        
         locationManager.requestWhenInUseAuthorization()
         
         locationManager.startUpdatingLocation()
@@ -42,10 +47,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         //Find user location
-         
+        
         if let coord = manager.location?.coordinate {
             
             let center = CLLocationCoordinate2D(latitude: coord.latitude, longitude: coord.longitude)
+            
+            userLocation = center
+            
+            location.coord = "(\(userLocation.latitude), \(userLocation.longitude)"
             
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             
@@ -70,6 +79,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
         
+        try? Auth.auth().signOut()
+        
+        navigationController?.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func saveLocationPressed(_ sender: UIButton) {
@@ -84,13 +97,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             if let textFieldText = textField.text {
                 
-                let location = Location()
+                self.location.name = textFieldText
                 
-                location.name = textFieldText
-                
-                self.locationsDictionary = ["Name" : location.name, "lat" : 15, "lon" : 139.443, "City" : "Kuwait"]
-                
+                self.locationsDictionary = ["Name" : self.location.name, "lat" : self.userLocation.latitude, "lon" : self.userLocation.longitude, "City" : "Kuwait"]
                 Database.database().reference().child("Locations").childByAutoId().setValue(self.locationsDictionary)
+                
+                self.performSegue(withIdentifier: "locationsSigue", sender: nil)
                 
             }
             
@@ -104,8 +116,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
         }
         
-        
-        
         ac.addAction(action)
         
         present(ac, animated: true, completion: nil)
@@ -113,5 +123,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-
+    
+    @IBAction func locationsButton(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "locationsSigue", sender: nil)
+        
+    }
+    
+    
+    
 }
