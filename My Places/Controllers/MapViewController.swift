@@ -54,7 +54,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             userLocation = center
             
-            location.coord = "(\(userLocation.latitude), \(userLocation.longitude)"
+            location.coord = "(\(userLocation.latitude), \(userLocation.longitude)" //save in location model
             
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             
@@ -97,7 +97,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             if let textFieldText = textField.text {
                 
-                self.location.name = textFieldText
+                self.location.name = textFieldText //save in location model
                 
                 self.locationsDictionary = ["Name" : self.location.name, "lat" : self.userLocation.latitude, "lon" : self.userLocation.longitude, "City" : "Kuwait"]
                 Database.database().reference().child("Locations").childByAutoId().setValue(self.locationsDictionary)
